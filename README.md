@@ -211,6 +211,7 @@ The following table shows the performance of 22 evaluated MLLMs on CrossVid data
 | 21 | LongVA-7B-DPO | 256 | 18.0 | 23.5 | 7.5 | 26.3 | 10.7 |
 | 22 | VideoLLaMA3-7B | 180 | 15.3 | 20.8 | 6.7 | 19.8 | 9.8 |
 
+> **Note**: An equal number of frames are sampled uniformly from each video and resized to 360px on the longer side. 
 ---
 
 ### Metrics Description
@@ -222,9 +223,7 @@ The following table shows the performance of 22 evaluated MLLMs on CrossVid data
 - **CCQA**: Comparative Culinary QA accuracy
 - **#Frames**: Total number of input frames per query
 
-[//]: # (> **Note**: Bold numbers in each column indicate the best performance among models in that category.)
-
-> **Note**: An equal number of frames are sampled uniformly from each video and resized to 360px on the longer side.  
+> **Note**: Bold numbers in each column indicate the best performance among models in that category.
 ---
 
 ## 📄 License & Contact
