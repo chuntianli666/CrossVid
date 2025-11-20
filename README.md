@@ -35,7 +35,7 @@
 
 - **[2025-11]** 🎉 CrossVid accepted by **AAAI 2026**!
 - **[2025-11]** 📊 Dataset available on [HuggingFace](https://huggingface.co/datasets/Chuntianli/CrossVid).
-- **[TODO]** 🔧 Evaluation code coming soon!
+- **[2025-11]** 🔧 Evaluation code uploaded.
 
 ---
 
