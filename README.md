@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Paper](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/XXXXX)
+[![Paper](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2511.12263)
 [![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace-orange.svg)](https://huggingface.co/datasets/Chuntianli/CrossVid)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -86,23 +86,93 @@ We thank the creators of these valuable datasets for providing the foundational 
 ---
 
 ## 🚀 Quick Start
+We provide a evaluation script named by the task name that supports parallel inference using OpenAI-compatible APIs (e.g., **vLLM**, **LMDeploy**, or **SGLang**).
 
-### Installation & Usage
-```python
-#pip install datasets
+### 1. Preparation
 
-from datasets import load_dataset
+Before running the evaluation, download dataset from huggingface and clone this repository. Ensure your environment are set up correctly:
 
-# Load dataset
-dataset = load_dataset("Chuntianli/CrossVid")
-
-# Access sample
-sample = dataset[0]
-print(sample)
+**Directory Structure**  
+Ensure your project directory looks like this:
+```text
+CrossVid/
+│── uav/                 # Folder containing uav files
+│   ├── bbox/
+│   └── frames/
+├── videos/              # Folder containing video files
+│   ├── assembly/
+│   ├── behavior/
+│   ├── cook/
+│   └── movie/
+│── QA/                  # Folder containing QA JSON files (e.g., BU.json)
+│   ├── BU.json
+│   ├── CC.json
+│   ├── CCQA.json
+│   ├── ...
+|── eval/                # The evaluation scripts
+│   ├── utils/
+│   ├── BU.py
+│   ├── CC.py
+│   ├── ...
+│   ├── score_CCQA.py
+└── README.md
 ```
 
-### Evaluation is Coming Soon...
+**Python environment**  
+Install the following required packages:
+```bash
+pip install openai opencv-python decord numpy
+```
 
+Enter root directory:
+```bash
+cd CrossVid
+```
+
+### 2. Run Evaluation
+To evaluate a task, run the evaluation script with the following command. The script will process videos, perform inference via the API, and automatically calculate the accuracy.
+For example, you can evaluate task BU via:
+```bash
+python eval/BU.py \
+    --model "your-model-name" \
+    --video_root "videos" \
+    --QA_path "QA/BU.json" \
+    --save_path "results/BU_result.json" \
+    --port 8000 \
+    --threads 20
+```
+
+### 3. Arguments
+
+| Argument | Type | Default | Description                                           |
+| :--- | :--- | :--- |:------------------------------------------------------|
+| `--model` | `str` | **Required** | The model name used for inference.                    |
+| `--QA_path` | `str` | `QA/BU.json` | Path to the input Question-Answer JSON file.          |
+| `--video_root` | `str` | `videos` | Root directory containing the video files.            |
+| `--save_path` | `str` | **Required** | Path where the inference results will be saved.       |
+| `--port` | `int` | `8000` | The port number of your running API server.           |
+| `--threads` | `int` | `20` | Number of parallel threads for faster inference.      |
+| `--frames` | `int` | `128` | Total number of frames to sample per inference.       |
+| `--length` | `int` | `360` | The resolution length (long side) for frame resizing. |
+
+
+### 4. Output & Metrics
+Upon completion, the script saves detailed results to the specified JSON file and prints the overall accuracy:
+```text
+The performance of <model_name> on task BU is 0.654
+```
+
+### 5. Open-ended Evaluation
+For open-ended tasks (e.g., **CCQA**), we employ an **LLM-as-a-Judge** approach to score responses based on **Coverage** and **Correctness** of key scoring points.
+
+Remember to configure the API key/URL in `eval/score_CCQA.py`).
+
+```bash
+python eval/score_CCQA.py \
+    --QA_path "QA/CCQA.json" \
+    --answer_path "results/CCQA_result.json" \
+    --save_path "results/CCQA_score.json"
+```
 ---
 
 ## 📊 Leaderboard
@@ -137,11 +207,14 @@ print(sample)
 
 ## 📝 Citation
 ```bibtex
-@inproceedings{li2025crossvid,
-  title={CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models},
-  author={Li, Jingyao and Wang, Jingyun and Tan, Molin and Wang, Haochen and Yan, Cilin and Shi, Likun and Cai, Jiayin and Jiang, Xiaolong and Hu, Yao},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  year={2025}
+@misc{li2025crossvid,
+      title={CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models}, 
+      author={Jingyao Li and Jingyun Wang and Molin Tan and Haochen Wang and Cilin Yan and Likun Shi and Jiayin Cai and Xiaolong Jiang and Yao Hu},
+      year={2025},
+      eprint={2511.12263},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2511.12263}, 
 }
 ```
 
