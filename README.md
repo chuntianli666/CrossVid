@@ -175,20 +175,56 @@ python eval/score_CCQA.py \
 ```
 ---
 
-## 📊 Leaderboard
 
-| Rank | Model | Overall | Comparative | Temporal | Multi-View | Free-Form |
-|:----:|:------|:-------:|:-----------:|:--------:|:----------:|:---------:|
-| 🥇 | **Gemini-2.5-Pro** | **50.4** | 54.7 | 56.0 | 28.7 | 59.8 |
-| 🥈 | GPT-4.1 | 45.2 | 47.6 | 46.7 | 38.4 | 44.6 |
-| 🥉 | Doubao-1.5-VL-Pro | 44.3 | 53.8 | 36.1 | 34.7 | 50.1 |
-| 4 | GPT-4o | 36.8 | 43.1 | 35.5 | 27.4 | 34.2 |
-| 5 | GLM-4.1V-9B-Thinking | 35.1 | 44.7 | 23.1 | 37.8 | 26.9 |
-| 6 | Qwen2.5-VL-72B | 34.4 | 42.1 | 29.2 | 23.5 | 41.2 |
-| ... | ... | ... | ... | ... | ... | ... |
-| - | **Human** | **89.2** | **88.1** | **89.9** | **93.7** | **85.2** |
+# 📊 Leaderboard
 
+## Benchmark Results
 
+The following table shows the performance of 22 evaluated MLLMs on CrossVid dataset, ranked by Overall Average (O.Avg) score.
+
+### Model Leaderboard
+
+| Rank | Model | #Frames | O.Avg | C.Avg | T.Avg | M.Avg | CCQA |
+|:----:|:------|:-------:|:-----:|:-----:|:-----:|:-----:|:----:|
+| | ***Closed-Source Models*** |
+| 🥇 | Gemini-2.5-Pro | 128 | **50.4** | **54.7** | **56.0** | 28.7 | **59.8** |
+| 🥈 | GPT-4.1 | <50 | 45.2 | 47.6 | 46.7 | **38.4** | 44.6 |
+| 🥉 | Doubao-1.5-VL-pro | 256 | 44.3 | 53.8 | 36.1 | 34.7 | 50.1 |
+| 4 | GPT-4o | <50 | 36.8 | 43.1 | 35.5 | 27.4 | 34.2 |
+| | ***Open-Source Models*** |
+| 5 | GLM-4.1V-9B-Thinking | 256 | **35.1** | **44.7** | 23.1 | **37.8** | 26.9 |
+| 6 | Qwen2.5-VL-72B | 256 | 34.4 | 42.1 | 29.2 | 23.5 | **41.2** |
+| 7 | Qwen2.5-VL-32B | 256 | 33.7 | 38.3 | 26.5 | 31.7 | **41.2** |
+| 8 | MiMo-7B | 256 | 28.3 | 31.2 | 23.0 | 33.6 | 22.0 |
+| 9 | Kimi-VL-A3B-Thinking | 256 | 28.2 | 33.4 | 17.9 | 32.7 | 29.2 |
+| 10 | LLaVA-Video-72B | 128 | 27.5 | 33.9 | 22.0 | 27.9 | 17.8 |
+| 11 | LLaVA-OV-72B | 24 | 27.5 | 27.9 | **29.3** | 30.5 | 14.6 |
+| 12 | InternVL3-78B | 128 | 25.8 | 33.1 | 15.6 | 28.1 | 23.2 |
+| 13 | InternVL3-8B | 128 | 25.6 | 26.1 | 20.3 | **40.7** | 9.7 |
+| 14 | MiniCPM-O 2.6 | 128 | 25.6 | 26.2 | 26.4 | 31.4 | 9.0 |
+| 15 | ERNIE-4.5-VL-A3B | 440 | 24.8 | 25.4 | 19.7 | 32.5 | 22.5 |
+| 16 | Qwen2.5-Omni-7B | 64 | 24.6 | 26.7 | 21.6 | 29.6 | 15.3 |
+| 17 | InternVL3-38B | 128 | 23.5 | 27.8 | 10.1 | 38.6 | 16.2 |
+| 18 | Video-R1-7B | 256 | 21.6 | 18.5 | **26.9** | 26.9 | 8.0 |
+| 19 | Phi-3.5-vision | 64 | 21.5 | 25.9 | 17.2 | 27.6 | 4.3 |
+| 20 | Qwen2.5-VL-7B | 256 | 18.3 | 19.3 | 20.0 | 16.8 | 12.0 |
+| 21 | LongVA-7B-DPO | 256 | 18.0 | 23.5 | 7.5 | 26.3 | 10.7 |
+| 22 | VideoLLaMA3-7B | 180 | 15.3 | 20.8 | 6.7 | 19.8 | 9.8 |
+
+---
+
+### Metrics Description
+
+- **O.Avg**: Overall average accuracy across all ten tasks
+- **C.Avg**: Average accuracy on Comparative Analysis tasks (BU, NC, CC, PEA)
+- **T.Avg**: Average accuracy on Temporal Understanding tasks (PI, FSA, PSS)
+- **M.Avg**: Average accuracy on Multi-view Reasoning tasks (MSR, MOC)
+- **CCQA**: Comparative Culinary QA accuracy
+- **#Frames**: Total number of input frames per query
+
+[//]: # (> **Note**: Bold numbers in each column indicate the best performance among models in that category.)
+
+> **Note**: An equal number of frames are sampled uniformly from each video and resized to 360px on the longer side.  
 ---
 
 ## 📄 License & Contact
