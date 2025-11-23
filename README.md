@@ -90,7 +90,7 @@ We provide a evaluation script named by the task name that supports parallel inf
 
 ### 1. Preparation
 
-Before running the evaluation, download dataset from huggingface and clone this repository. Ensure your environment are set up correctly:
+Before running the evaluation, download dataset from Huggingface and clone this repository. Ensure your environment are set up correctly:
 
 **Directory Structure**  
 Ensure your project directory looks like this:
@@ -241,15 +241,13 @@ The following table shows the performance of 22 evaluated MLLMs on CrossVid data
 ---
 
 ## 📝 Citation
+If you find CrossVid useful for your research, please cite our paper:
 ```bibtex
-@misc{li2025crossvid,
-      title={CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models}, 
-      author={Jingyao Li and Jingyun Wang and Molin Tan and Haochen Wang and Cilin Yan and Likun Shi and Jiayin Cai and Xiaolong Jiang and Yao Hu},
-      year={2025},
-      eprint={2511.12263},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2511.12263}, 
+@article{li2025crossvid,
+  title={CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models},
+  author={Li, Jingyao and Wang, Jingyun and Tan, Molin and Wang, Haochen and Yan, Cilin and Shi, Likun and Cai, Jiayin and Jiang, Xiaolong and Hu, Yao},
+  journal={arXiv preprint arXiv:2511.12263},
+  year={2025}
 }
 ```
 
