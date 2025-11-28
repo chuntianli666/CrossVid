@@ -171,5 +171,8 @@ if __name__ == "__main__":
     length = args.length
     threads = args.threads
     port = args.port
+    video_root = args.video_root
+    QA_path = args.QA_path
+    save_path = args.save_path
 
     main()
