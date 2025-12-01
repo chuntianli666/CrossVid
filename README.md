@@ -165,7 +165,7 @@ The performance of <model_name> on task BU is 0.654
 ### 5. Open-ended Evaluation
 For open-ended tasks (e.g., **CCQA**), we employ an **LLM-as-a-Judge** approach to score responses based on **Coverage** and **Correctness** of key scoring points.
 
-Remember to configure the API key/URL in `eval/score_CCQA.py`).
+Remember to configure the API key/URL in `eval/score_CCQA.py`.
 
 ```bash
 python eval/score_CCQA.py \
@@ -228,7 +228,7 @@ The following table shows the performance of 22 evaluated MLLMs on CrossVid data
 
 ## 📄 License & Contact
 
-<!-- **License**: MIT License - see [LICENSE](LICENSE) -->
+**License**: MIT License - see [LICENSE](LICENSE)
 
 **Datasets**: Videos from public datasets - refer to original licenses ([Animal Kingdom](https://github.com/sutdcv/Animal-Kingdom), [MovieChat-1K](https://github.com/rese1f/MovieChat), [YouCook2](http://youcook2.eecs.umich.edu/), [VisDrone](https://github.com/VisDrone/VisDrone-Dataset), [Charades](https://prior.allenai.org/projects/charades), [Assembly101](https://assembly-101.github.io/))
 

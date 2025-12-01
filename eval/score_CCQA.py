@@ -37,7 +37,6 @@ Wrap the json output within <score></score> tags.
 Your answer:
 """
 
-model = "gpt-4.1"
 QA_path = "QA/CCQA.json"
 answer_path = ""
 save_path = ""
@@ -145,7 +144,7 @@ def main():
 
     sum_score = sum([p["score"] for p in results])
     all_score = sum([2 * len(p["coverage"]) for p in results])
-    print(f"The performance of {model} on task CCQA is {sum_score / all_score}")
+    print(f"The performance on task CCQA is {sum_score / all_score}")
 
 if __name__ == '__main__':
     import argparse
