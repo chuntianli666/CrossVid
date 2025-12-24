@@ -90,21 +90,28 @@ We provide a evaluation script named by the task name that supports parallel inf
 
 ### 1. Preparation
 
-Before running the evaluation, download dataset from Huggingface and clone this repository. Ensure your environment are set up correctly:
+Due to copyright restrictions, please download the **[Charades](https://prior.allenai.org/projects/charades)** and **[Animal Kingdom](https://sutdcv.github.io/Animal-Kingdom/)** datasets from their **official repositories**.  
+After downloading, merge all original videos and place them under:
+
+```text
+videos/behavior
+```
+
+Before running the evaluation, download annotations and other videos from **[HuggingFace](https://huggingface.co/datasets/Chuntianli/CrossVid)** and clone this repository. Ensure your environment are set up correctly:
 
 **Directory Structure**  
 Ensure your project directory looks like this:
 ```text
 CrossVid/
-│── uav/                 # Folder containing uav files
+│── uav/                 # VisDrone
 │   ├── bbox/
 │   └── frames/
 ├── videos/              # Folder containing video files
-│   ├── assembly/
-│   ├── behavior/
-│   ├── cook/
-│   └── movie/
-│── QA/                  # Folder containing QA JSON files (e.g., BU.json)
+│   ├── assembly/        # Assembly101
+│   ├── behavior/        # Charades & Animal Kingdom
+│   ├── cook/            # YouCook2
+│   └── movie/           # MovieChat-1K
+│── QA/                  # Folder containing QA JSON files
 │   ├── BU.json
 │   ├── CC.json
 │   ├── CCQA.json
@@ -228,9 +235,12 @@ The following table shows the performance of 22 evaluated MLLMs on CrossVid data
 
 ## 📄 License & Contact
 
-**License**: MIT License - see [LICENSE](LICENSE)
+**License**: 
+- This repository (evaluation scripts): MIT License - see [LICENSE](LICENSE)
+- QA annotations on HuggingFace: CC BY 4.0  
+- Source videos on HuggingFace: same licenses as their corresponding original datasets ([Animal Kingdom](https://github.com/sutdcv/Animal-Kingdom), [MovieChat-1K](https://github.com/rese1f/MovieChat), [YouCook2](http://youcook2.eecs.umich.edu/), [VisDrone](https://github.com/VisDrone/VisDrone-Dataset), [Charades](https://prior.allenai.org/projects/charades), [Assembly101](https://assembly-101.github.io/))
 
-**Datasets**: Videos from public datasets - refer to original licenses ([Animal Kingdom](https://github.com/sutdcv/Animal-Kingdom), [MovieChat-1K](https://github.com/rese1f/MovieChat), [YouCook2](http://youcook2.eecs.umich.edu/), [VisDrone](https://github.com/VisDrone/VisDrone-Dataset), [Charades](https://prior.allenai.org/projects/charades), [Assembly101](https://assembly-101.github.io/))
+We do **not** own any copyrights of these videos. All video contents are from public datasets, and their copyrights belong to the original authors / dataset creators.
 
 **Contact**: 
 - Email: chuntianli666666@gmail.com
