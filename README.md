@@ -33,8 +33,9 @@
 
 ## 📢 News
 
+- **[2026-06]** 🔥 CrossVid is used by **[Seed 2.0](https://arxiv.org/pdf/2607.00248)** and **[Seed 2.1](https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/seed2.1/Seed2_1_Model_Card.pdf)** to test multi-video understanding capability.
 - **[2025-11]** 🎉 CrossVid accepted by **AAAI 2026**!
-- **[2025-11]** 📊 Dataset available on [HuggingFace](https://huggingface.co/datasets/Chuntianli/CrossVid).
+- **[2025-11]** 📊 Dataset available on **[HuggingFace](https://huggingface.co/datasets/Chuntianli/CrossVid)**.
 - **[2025-11]** 🔧 Evaluation code uploaded.
 
 ---
